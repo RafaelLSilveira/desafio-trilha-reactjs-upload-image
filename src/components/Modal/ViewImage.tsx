@@ -1,12 +1,15 @@
+/* eslint-disable prettier/prettier */
 import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalFooter,
-  ModalBody,
   Image,
   Link,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalOverlay
 } from '@chakra-ui/react';
+import { ReactElement } from 'react';
 
 interface ModalViewImageProps {
   isOpen: boolean;
@@ -18,6 +21,29 @@ export function ModalViewImage({
   isOpen,
   onClose,
   imgUrl,
-}: ModalViewImageProps): JSX.Element {
-  // TODO MODAL WITH IMAGE AND EXTERNAL LINK
+}: ModalViewImageProps): ReactElement {
+  return (
+    <Modal isOpen={isOpen} onClose={onClose} isCentered>
+      <ModalOverlay />
+      <ModalContent bg="pGray.800" maxW="fit-content">
+        <ModalCloseButton />
+        <ModalBody maxW="unset">
+          <Image
+            src={imgUrl}
+            objectFit="fill"
+            w="max"
+            h="max"
+            maxH="900px"
+            maxW="600px"
+            borderTopRadius="md"
+          />
+        </ModalBody>
+        <ModalFooter justifyContent="flex-start">
+          <Link href={imgUrl} isExternal>
+            Abrir original
+          </Link>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  );
 }

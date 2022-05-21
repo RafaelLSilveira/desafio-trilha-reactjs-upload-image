@@ -1,12 +1,12 @@
+/* eslint-disable prettier/prettier */
 import {
   Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
   ModalBody,
   ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay
 } from '@chakra-ui/react';
-
 import { FormAddImage } from '../Form/FormAddImage';
 
 interface ModalAddImageProps {
